@@ -278,7 +278,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 <div align="center">
 
-**Made with ❤️ and Flutter**
+**Made with ❤️ By ErrorX**
 
 ⭐ Star this repo if you find it helpful!
 
