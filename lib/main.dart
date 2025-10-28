@@ -13,14 +13,32 @@ void main() async {
   await WindowService.instance.setTitle('BDIX FTP Tester');
   await WindowService.instance.setMinimumSize(800, 600);
 
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends ConsumerWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends ConsumerState<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    // Load saved theme on startup
+    Future.microtask(() {
+      ref.read(themeProvider.notifier).loadTheme();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final themeMode = ref.watch(themeProvider);
 
     return MaterialApp(

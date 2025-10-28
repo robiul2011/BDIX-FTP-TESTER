@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/ftp_link.dart';
+import '../models/proxy_config.dart';
 import '../services/ftp_service.dart';
 
 final ftpLinksProvider =
@@ -15,6 +16,10 @@ class FtpLinksNotifier extends StateNotifier<List<FtpLink>> {
   void initializeLinks(List<String> urls) {
     _urls = List.from(urls);
     state = [];
+  }
+
+  void setProxy(ProxyConfig? config) {
+    _ftpService.setProxy(config);
   }
 
   Stream<List<FtpLink>> testLinksStream() async* {
@@ -42,6 +47,11 @@ class FtpLinksNotifier extends StateNotifier<List<FtpLink>> {
   void sortByResponseTime() {
     state = [...state]
       ..sort((a, b) => a.responseTime.compareTo(b.responseTime));
+  }
+
+  void sortBySpeed() {
+    state = [...state]
+      ..sort((a, b) => b.downloadSpeed.compareTo(a.downloadSpeed));
   }
 
   void sortByUrl() {

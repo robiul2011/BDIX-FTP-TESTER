@@ -1,7 +1,7 @@
 name: bdix_ftp_tester
 description: "A modern BDIX FTP link tester application"
 publish_to: 'none'
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: '>=3.2.3 <4.0.0'
@@ -12,16 +12,20 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^1.1.2
   provider: ^6.1.1
-  flutter_animate: ^4.3.0
   google_fonts: ^6.1.0
   url_launcher: ^6.2.2
   shared_preferences: ^2.2.2
   flutter_riverpod: ^2.4.9
   dio: ^5.4.0
-  font_awesome_flutter: ^10.6.0
   window_manager: ^0.3.7
   path_provider: ^2.1.1
   flutter_markdown: ^0.6.18
+  fl_chart: ^0.68.0
+  shimmer: ^3.0.0
+  lottie: ^3.1.0
+  card_swiper: ^3.0.1
+  blur: ^3.1.0
+  glassmorphism: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -37,17 +41,21 @@ flutter:
     - assets/images/
 
 flutter_launcher_icons:
-  android: "launcher_icon"
-  ios: true
-  image_path: "assets/images/icon.png"
+  android: true
+  ios: false
+  image_path: "assets/logo.png"
   min_sdk_android: 21
   web:
     generate: true
-    image_path: "assets/images/icon.png"
+    image_path: "assets/logo.png"
   windows:
     generate: true
-    image_path: "assets/images/icon.png"
+    image_path: "assets/logo.png"
     icon_size: 48
   macos:
     generate: true
-    image_path: "assets/images/icon.png" 
+    image_path: "assets/logo.png"
+  linux:
+    generate: true
+    image_path: "assets/logo.png"
+  remove_alpha_ios: true 
